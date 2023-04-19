@@ -5,19 +5,23 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "concurrently --names 'database,gameserver' \"node index.js\" \"node gameserver.js\"",
+        "dbserver": "node backend/index.js",
+        "socketioserver": "node backend/gameserver.js",
+        "start": "concurrently --names 'database,gameserver' \"npm run dbserver\" \"npm run socketioserver\"",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "concurrently": "^7.6.0",
         "cors": "^2.8.5",
         "dotenv": "^16.0.3",
         "express": "^4.18.2",
         "mongodb": "^4.12.1",
         "socket.io": "^4.6.1",
         "socket.io-client": "^4.6.1"
+    },
+    "devDependencies": {
+        "concurrently": "^8.0.1"
     }
 }
