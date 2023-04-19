@@ -12,20 +12,23 @@ import { Server } from "socket.io";
 // Use gameServer as an instance of express
 const gameServer = express();
 
-// Helps prevent connection errors
-gameServer.use(cors());
 // Set the PORT to listen on
 const PORT = process.env.PORT || 4010;
+
+// Set the cors options
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+};
+
+// Helps prevent connection errors
+gameServer.use(cors(corsOptions));
+
 // Create http server with express
 const server = http.createServer(gameServer);
 
 // Create variable to use socket.io functions
-const io = new Server(server, {
-  cors: {
-    origin: ["http://localhost:3000", "http://localhost:3001"],
-    methods: ["GET", "POST"],
-  },
-});
+const io = new Server(server, { cors: corsOptions });
 
 // Get the username from the client and connect it with its socket - O.S.
 io.use((socket, next) => {
