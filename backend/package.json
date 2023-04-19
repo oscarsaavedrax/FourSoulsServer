@@ -5,7 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "servers": "concurrently --names 'database,gameserver' \"nodemon index.js\" \"nodemon gameserver.js\"",
+        "start": "concurrently --names 'database,gameserver' \"nodemon index.js\" \"nodemon gameserver.js\"",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
