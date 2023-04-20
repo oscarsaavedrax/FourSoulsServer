@@ -13,7 +13,7 @@ import { Server } from "socket.io";
 const gameServer = express();
 
 // Set the PORT to listen on
-const PORT = process.env.PORT || 4010;
+const PORT = process.env.PORT || 27017;
 
 // Set the cors options
 const corsOptions = {
