@@ -12,7 +12,7 @@ import AccountsDAO from "./DAOs/accountsDAO.js";
 /* Load the .env file into 'process' - D.D */
 dotenv.config();
 const MongoClient = mongodb.MongoClient;
-const port = process.env.PORT || 3000;
+const mongoPort = process.env.MONGODB_PORT || 8000;
 
 /* Connect to the MongoDB Collection - D.D. */
 MongoClient.connect(process.env.RESTFOURSOULSONLINE_DB_URI, {
@@ -27,7 +27,7 @@ MongoClient.connect(process.env.RESTFOURSOULSONLINE_DB_URI, {
   .then(async (client) => {
     /* Create/connect to accounts collection in MongoDB - D.D. */
     await AccountsDAO.injectDB(client);
-    app.listen(port, () => {
-      console.log(`listening on port ${port}`);
+    app.listen(mongoPort, () => {
+      console.log(`listening on port ${mongoPort}`);
     });
   });
