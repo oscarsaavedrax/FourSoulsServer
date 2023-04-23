@@ -5,9 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "dbserver": "node backend/index.js",
-        "socketioserver": "node backend/gameserver.js",
-        "start": "concurrently --names 'database,gameserver' \"npm run dbserver\" \"npm run socketioserver\"",
+        "start": "node server/gameserver.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
